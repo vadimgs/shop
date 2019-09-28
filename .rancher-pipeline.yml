@@ -23,6 +23,15 @@ stages:
         when:
           branch: [ master, dev ]
           event: push
+  - name: Publish my image
+    steps:
+      - publishImageConfig:
+          dockerfilePath: ./Dockerfile
+          buildContext: .
+          tag: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+          # Optionally push to remote registry
+          pushRemote: true
+          registry: reg.example.com
   - name: Deploy some workloads
     steps:
       - applyYamlConfig:
