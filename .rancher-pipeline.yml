@@ -29,4 +29,4 @@ stages:
   - name: Deploy some workloads
     steps:
       - applyYamlConfig:
-          path: ./deployment.yaml
+          path: ./deploy/deployment.yaml
