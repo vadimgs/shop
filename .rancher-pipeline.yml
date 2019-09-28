@@ -39,13 +39,3 @@ stages:
     steps:
       - applyYamlConfig:
           path: ./deployment.yaml
-# branch conditions for the pipeline
-branch:
-  include: [ master, feature/*]
-  exclude: [ dev ]
-# timeout in minutes
-timeout: 30
-  # Select which statuses you want the notification to be sent  
-  condition: ["Failed", "Success", "Changed"]
-  # Ability to override the default message (Optional)
-  message: "my-message"
