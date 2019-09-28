@@ -14,6 +14,7 @@ stages:
         env:
           FIRST_KEY: VALUE
           SECOND_KEY: VALUE2
+          ALIAS_ENV: VALUE2
         # Set environment variables from project secrets
         envFrom:
           - sourceName: my-secret
