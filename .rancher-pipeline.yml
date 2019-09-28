@@ -14,7 +14,6 @@ stages:
         env:
           FIRST_KEY: VALUE
           SECOND_KEY: VALUE2
-          ALIAS_ENV: VALUE2
         # Set environment variables from project secrets
         envFrom:
           - sourceName: my-secret
@@ -27,15 +26,6 @@ stages:
         when:
           branch: [ master, dev ]
           event: push
-  - name: Publish my image
-    steps:
-      - publishImageConfig:
-          dockerfilePath: ./Dockerfile
-          buildContext: .
-          tag: rancher/rancher:v2.0.0
-          # Optionally push to remote registry
-          pushRemote: true
-          registry: reg.example.com
   - name: Deploy some workloads
     steps:
       - applyYamlConfig:
