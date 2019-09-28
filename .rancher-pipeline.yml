@@ -28,7 +28,7 @@ stages:
       - publishImageConfig:
           dockerfilePath: ./Dockerfile
           buildContext: .
-          tag: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+          tag: nginx:${CICD_EXECUTION_SEQUENCE}
           # Optionally push to remote registry
           pushRemote: true
           registry: reg.example.com
