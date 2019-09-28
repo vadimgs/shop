@@ -26,15 +26,6 @@ stages:
         when:
           branch: [ master, dev ]
           event: push
-  - name: Publish my image
-    steps:
-      - publishImageConfig:
-          dockerfilePath: ./Dockerfile
-          buildContext: .
-          tag: rancher/rancher:v2.0.0
-          # Optionally push to remote registry
-          pushRemote: true
-          registry: docker-registry
   - name: Deploy some workloads
     steps:
       - applyYamlConfig:
