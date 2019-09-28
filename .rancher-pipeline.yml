@@ -1,6 +1,4 @@
-stages:
 
-  steps:
   - services:
       ngx:
         image: nginx:latest
