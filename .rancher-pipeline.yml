@@ -21,7 +21,7 @@ stages:
           shellScript: date -R
         # Conditions for steps
         when:
-          branch: [ master, dev ]
+          branch: [ master ]
           event: push
   - name: Publish my image
     steps:
@@ -31,7 +31,6 @@ stages:
           tag: nginx:${CICD_EXECUTION_SEQUENCE}
           # Optionally push to remote registry
           pushRemote: true
-          registry: reg.example.com
   - name: Deploy some workloads
     steps:
       - applyYamlConfig:
